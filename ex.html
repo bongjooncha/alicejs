@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            transition: transform 0.5s ease;
+        }
+
+        .side {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .active {
+            transform: translateX(100px);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main"></div>
+        <div class="side"></div>
+    </div>
+    <button onclick="toggleBox()">Toggle Side Box</button>
+
+    <script>
+        let isBoxActive = false;
+
+        function toggleBox() {
+            const mainBox = document.querySelector('.main');
+            const sideBox = document.querySelector('.side');
+
+            if (!isBoxActive) {
+                sideBox.classList.add('active');
+            } else {
+                sideBox.classList.remove('active');
+            }
+
+            isBoxActive = !isBoxActive;
+        }
+    </script>
+</body>
+</html>
